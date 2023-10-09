@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#jjjj
+for pid in /proc/*/; do
+    process_name=$(<"$pid"/comm)  # Get the process name
+    if [[ $process_name == *bash* ]]; then
+        echo "PID: $(basename "$pid"), Process Name: $process_name"
+    fi
+done
